@@ -1,5 +1,7 @@
 
 import pygame
+import random
+import time
 
 # display code starts here
 pygame.init()
