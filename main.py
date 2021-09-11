@@ -1,4 +1,11 @@
-#clone this repo in Pycharm so that we all push here
-import curses
-# this is by DS
-# this is by mk
+
+import pygame
+
+# display code starts here
+pygame.init()
+dis = pygame.display.set_mode((500, 500))
+pygame.display.update()
+pygame.quit()
+quit()
+
+# display code ends here
