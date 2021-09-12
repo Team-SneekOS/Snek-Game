@@ -7,16 +7,18 @@ pygame.init()
 white = (255, 255, 255)
 black = (0, 0, 0)
 red = (255, 0, 0)
+blue = (0, 0, 255)
+darkGreen = (9, 51, 0)
 
-snake_block = 10
+snake_block = 7
 
-imageS = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Snek.jpg')
-imageN = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Nice.jpg')
-imageA = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Apple.jpg')
-imageK = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\King.jpg')
-imageE = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Elephant.jpg')
+# imageS = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Snek.jpg')
+# imageN = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Nice.jpg')
+# imageA = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Apple.jpg')
+# imageK = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\King.jpg')
+# imageE = pygame.image.load(r'C:\Users\DELL\OneDrive\Desktop\Snakeathon\Elephant.jpg')
 
-imgArray = [imageS, imageN, imageE, imageE, imageK]
+# imgArray = [imageS, imageN, imageE, imageE, imageK]
 
 dis_width = 500
 dis_height = 500
@@ -35,6 +37,13 @@ foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
 foody = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
 
 clock = pygame.time.Clock()
+font_style = pygame.font.SysFont(None, 50)
+
+
+def message(msg, color):
+    mesg = font_style.render(msg, True, color)
+    dis.blit(mesg, [dis_width / 2 - 75, dis_height / 2 - 50])
+
 
 while not game_over:
     for event in pygame.event.get():
@@ -59,16 +68,21 @@ while not game_over:
 
     x1 += x1_change
     y1 += y1_change
-    dis.fill(white)
-    pygame.draw.rect(dis, blue, [foodx, foody, snake_block, snake_block])
-    pygame.draw.rect(dis, black, [x1, y1, 10, 10])
+    dis.fill(darkGreen)
+    pygame.draw.rect(dis, red, [foodx, foody, snake_block, snake_block])
+    pygame.draw.rect(dis, white, [x1, y1, 10, 10])
 
-    if x1 = foodx and y1 = foody
+    # if x1 = foodx and y1 = foody:
 
     pygame.display.update()
 
     clock.tick(20)
 
+    if game_over:
+        message("You lost", red)
+    pygame.display.update()
+
+time.sleep(2)
 pygame.quit()
 quit()
 
